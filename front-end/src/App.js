@@ -9,6 +9,7 @@ import InitialPage from './pages/InitialPage';
 import HomePage from './components/HomePage';
 import Profile from './components/Profile';
 import AccountForm from './components/Account';
+import Advertisement from './components/Advertisement';
 
 
 function App() {
@@ -31,6 +32,11 @@ function App() {
             <Route path="/home">
               <NavBar/>
               <HomePage />
+            </Route>
+
+            <Route path="/advertisement">
+              <NavBar/>
+              <Advertisement />
             </Route>
             <Route path="/">
               <InitialPage />

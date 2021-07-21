@@ -1,3 +1,20 @@
 .login {
-    margin-top: 5rem;
+    margin-top: 30vh;
+    height: 50vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+
+    background-color: tomato;
+    border-radius: 30px;
+}
+
+.loginOuter {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.formlabel {
+    margin: 30px;
 }

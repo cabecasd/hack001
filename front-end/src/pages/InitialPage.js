@@ -5,9 +5,9 @@ import styles from '../styles/Login.module.css'
 
 function InitialPage() {
     return (
-        <div className={styles.login}>
+        <div className={styles.loginOuter}>
             <div>
-                <div className={styles.loginbox}>
+                <div className={styles.login}>
                     <Login />
                 </div>
                 <Link to="/account">
@@ -52,7 +52,8 @@ const Login = () => {
     return (
         <div>
             <form onSubmit={formik.handleSubmit}>
-                <label className="formlabel" htmlFor="username">Utilizador</label>
+                <div>
+                <label className= {styles.formlabel} htmlFor="username">Utilizador</label><br />
                 <input
                     type="text"
                     id="username"
@@ -61,8 +62,9 @@ const Login = () => {
                     onChange={formik.handleChange}
                     value={formik.values.username}
                 />
-
-                <label className="formlabel" htmlFor="username">Password</label>
+                </div>
+                <div>
+                <label className={styles.formlabel} htmlFor="username">Password</label><br />
                 <input
                     type="text"
                     id="password"
@@ -71,6 +73,7 @@ const Login = () => {
                     onChange={formik.handleChange}
                     value={formik.values.password}
                 />
+                </div>
                 <button className="login" variant="primary" type="submit">Login</button>
             </form>
         </div>
