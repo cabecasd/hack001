@@ -5,9 +5,16 @@ import styles from '../styles/NavBar.module.css'
 
 
 function NavBar() {
-        return <div className={styles.navBar}>
-            <Link to = "/home"><BsFillHouseDoorFill className={styles.casa}/></Link>
+        return (
+        <div className={styles.navBar}>
+            <div>
+                <Link to = "/home"><BsFillHouseDoorFill className={styles.home}/></Link>
+            </div>
+            <div>
+                <img  className={styles.logo} alt="logo Sintra amiga" src="/sintraamiga.png" />
+            </div>
         </div>
+        )
 }
 
 export default NavBar;
