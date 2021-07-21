@@ -46,12 +46,13 @@ async function createUser(values) {
         return false
     } else {
         values.private = false
+        values.description = ""
         const user = await collection.insertOne(values)
         return user
     }
 }
 
-async function toggleFavoriteStatus(userId, newState) {
+async function togglePrivateStatus(userId, newState) {
     const collection = await getCollection("users", "users")
     await collection.updateOne(
         { _id: ObjectId(userId) },
@@ -72,9 +73,23 @@ async function getloginInfo(values) {
     }
 }
 
+async function updateUserProfile(userId, values) {
+    const collection = await getCollection("users", "users")
+    await collection.updateOne(
+        { _id: ObjectId(userId) },
+        {
+            $set: {
+                email: values.email,
+                description: values.description
+            }
+        }
+    )
+}
+
 module.exports = {
     getloginInfo,
     createUser,
     getUserById,
-    toggleFavoriteStatus
+    togglePrivateStatus,
+    updateUserProfile
 }
