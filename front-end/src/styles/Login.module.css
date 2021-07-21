@@ -1,20 +1,76 @@
 .login {
-    margin-top: 23vh;
-    height: 50vh;
+    height: 40vh;
     width: 40vw;
     display: flex;
     flex-direction: column;
-
-    background-color: tomato;
+    
+    background-color: #e4bb8b;
     border-radius: 30px;
 }
 
 .loginOuter {
     width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    color: #ac442c;
+    font-weight: 500;
     display: flex;
     justify-content: center;
 }
 
-.formlabel1 {
-    padding-top: 2rem
+.button {
+    margin-left: 0.5rem;
+    width: 70px;
+    height: 30px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #000;
+    font-weight: 1000;
+    background-color: #ccc;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s ease 0s;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.buttonCreate {
+    margin-left: 0.5rem;
+    width: 100px;
+    height: 50px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #000;
+    font-weight: 1000;
+    background-color: #ccc;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s ease 0s;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.buttonAssociation {
+    margin-left: 0.5rem;
+    width: 160px;
+    height: 50px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #000;
+    font-weight: 1000;
+    background-color: #ccc;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s ease 0s;
+    cursor: pointer;
+    margin-top: 10px;
 }

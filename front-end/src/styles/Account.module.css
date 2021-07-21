@@ -1,7 +1,22 @@
 .account {
+    height: 40vh;
+    width: 40vw;
     display: flex;
     flex-direction: column;
+    background-color: #e4bb8b;
+    border-radius: 30px;
 }
+
+.formdata {
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    color: #ac442c;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+}
+
 
 .inputs {
     margin: 10px;

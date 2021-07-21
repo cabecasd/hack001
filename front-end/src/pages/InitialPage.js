@@ -7,20 +7,23 @@ function InitialPage() {
     return (
         <div className={styles.loginOuter}>
             <div>
+                <img src="sintraamiga.png"></img>
                 <div className={styles.login}>
                     <Login />
-                </div>
+                <div>
                 <Link to="/account">
-                    <button>
-                        Criar conta
+                    <button className={styles.buttonCreate}>
+                        Criar Conta
                     </button>
                 </Link>
 
                 <Link to="/home">
-                    <button>
-                        Sou uma assossitatiionz
+                    <button className={styles.buttonAssociation}>
+                        Sou uma Associação!
                     </button>
                 </Link>
+                </div>
+                </div>
             </div>
         </div>
     )
@@ -73,8 +76,8 @@ const Login = () => {
                     onChange={formik.handleChange}
                     value={formik.values.password}
                 />
-                
-                <button className="login" variant="primary" type="submit">Login</button>
+                <br />
+                <button className={styles.button} variant="primary" type="submit">Login</button>
         </div>
             </form>
         </div>

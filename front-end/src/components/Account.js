@@ -36,7 +36,7 @@ const AccountForm = () => {
   return (
 
     <div className={styles.account}>
-      <div className="formData">
+      <div className={styles.formdata}>
         <form onSubmit={formik.handleSubmit}>
           <h1>Criar conta</h1>
           <div className={styles.inputs}>
