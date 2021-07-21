@@ -6,7 +6,7 @@ import styles from '../styles/NavBar.module.css'
 
 function NavBar() {
         return <div className={styles.navBar}>
-            <Link to = "/home"><BsFillHouseDoorFill className={styles.casa} />Voltar para a HOME</Link>
+            <Link to = "/home"><BsFillHouseDoorFill className={styles.casa}/></Link>
         </div>
 }
 

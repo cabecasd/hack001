@@ -1,5 +1,6 @@
 import styles from '../styles/HomePage.module.css'
 import BoxAdv from './BoxAdv';
+import { BiSearchAlt2 } from "react-icons/bi";
 
 function HomePage() {
     async function handleSearch(e) {
@@ -10,7 +11,7 @@ function HomePage() {
     return (
         <>
         <div className={styles.home}>
-            <h2>HomePage</h2>
+            <h2>Feed</h2>
         <div>
             <input className = {styles.searchBar}
                 type="text"
@@ -19,7 +20,7 @@ function HomePage() {
                 placeholder="Podes pesquisar por..."
                 onChange={(e) => handleSearch(e)}
             />
-            <button className = {styles.button} >Pesquisar</button>
+            <button className = {styles.button} ><BiSearchAlt2 /></button>
         </div>
             <BoxAdv />
             <BoxAdv />

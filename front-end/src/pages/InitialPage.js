@@ -12,7 +12,7 @@ function InitialPage() {
                 </div>
                 <Link to="/account">
                     <button>
-                        criar conta
+                        Criar conta
                     </button>
                 </Link>
 
@@ -53,7 +53,7 @@ const Login = () => {
         <div>
             <form onSubmit={formik.handleSubmit}>
                 <div>
-                <label className= {styles.formlabel} htmlFor="username">Utilizador</label><br />
+                <label className= {styles.formlabel1} htmlFor="username">Utilizador</label><br />
                 <input
                     type="text"
                     id="username"
@@ -79,8 +79,6 @@ const Login = () => {
             </form>
         </div>
     )
-
-
 }
 
 
