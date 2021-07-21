@@ -1,11 +1,11 @@
-import React, { useEffect } from "react"
-import { Link } from "react-router-dom"
+import React from "react"
+import { Link, useHistory } from "react-router-dom"
 import { useFormik } from "formik"
 import styles from '../styles/Login.module.css'
 
 function InitialPage() {
     return (
-        <div className = {styles.login}>
+        <div className={styles.login}>
             <div>
                 <Login />
 
@@ -26,16 +26,27 @@ function InitialPage() {
 }
 
 const Login = () => {
+    const history = useHistory()
     const formik = useFormik({
         initialValues: { username: "", password: "" },
-        onSubmit: values => {
-            fetch("/authentication", {
-                method: "PATCH",
-                body: JSON.stringify(values),
-                headers: { "Content-Type": "application/json" },
-            })
-        }
+        onSubmit: values => { verifyLogin(values) }
     })
+
+    async function verifyLogin(values) {
+        const res = await fetch("/authentication", {
+            method: "PATCH",
+            body: JSON.stringify(values),
+            headers: { "Content-Type": "application/json" }
+        })
+        if (res.status === 404) {
+            alert("algo correu mal")
+        } else {
+            const data = await res.json()
+            console.log(data.loginInfo.user._id)
+            history.push(`/profile/${data.loginInfo.user._id}`)
+        }
+       
+    }
 
     return (
         <div>
@@ -59,7 +70,7 @@ const Login = () => {
                     onChange={formik.handleChange}
                     value={formik.values.password}
                 />
-                <Link to = "/profile"><button className="login" variant="primary" type="submit">Login</button></Link>
+                <button className="login" variant="primary" type="submit">Login</button>
             </form>
         </div>
     )
