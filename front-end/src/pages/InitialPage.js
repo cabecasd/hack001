@@ -23,7 +23,11 @@ const Login = () => {
     const formik = useFormik({
         initialValues: { username: "", password: "" },
         onSubmit: values => {
-            console.log(values)
+            fetch("/authentication", {
+                method: "PATCH",
+                body: JSON.stringify(values),
+                headers: { "Content-Type": "application/json" },
+            })
         }
     })
 
