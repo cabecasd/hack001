@@ -58,9 +58,10 @@ function Profile() {
 function UserDisplay(props) {
 
     return (
-        <div>
+        <div className={styles.profile}>
+            <div className={styles.personaldata}>
             {
-                props.user && <div>
+                props.user && <div >
                     <p>{props.user.fullName}</p>
                     <p>{props.user.email}</p>
                     <p>{props.user.username}</p>
@@ -74,7 +75,8 @@ function UserDisplay(props) {
                     />
                 </div>
             }
-            <button onClick={() => props.toggleEdit()}>Alterar perfil</button>
+            <button className={styles.button} onClick={() => props.toggleEdit()}>Alterar perfil</button>
+            </div>
         </div>
     )
 }

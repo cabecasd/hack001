@@ -7,7 +7,8 @@ const {
   createUser,
   getUserById,
   togglePrivateStatus,
-  updateUserProfile
+  updateUserProfile,
+  getAllAds
 } = require("./helperMongo")
 
 
@@ -61,6 +62,11 @@ app.get("/users/:id", async (req, res) => {
 app.patch("/authentication/:id", async (req, res) => {
   try {
     const mongoAnswer = await updateUserProfile(req.params.id, req.body)
+    if (mongoAnswer.modifiedCount === 1) {
+      res.sendStatus(200)
+    } else {
+      res.sendStatus(400)
+    }
   } catch (error) {
     console.log(error)
   }
@@ -76,12 +82,21 @@ app.patch("/togglePrivate", async (req, res) => {
   }
 })
 
+//carrega os anuncios da pagina inicial
+app.get("/homepage", async(req, res) => {
+  try {
+    const adsArray = await getAllAds()
+    res.status(200).json({adsArray})
+  } catch(error) {
+    console.log(error)
+  }
+})
+
 //pesquisa na pagina inicial
 ////////////////////////////////////////
 app.get("/search", async (req, res) => {
   try {
     console.log(req.query.q)
-    console.log("fasadfa")
   } catch (error) {
     console.log(error)
   }
