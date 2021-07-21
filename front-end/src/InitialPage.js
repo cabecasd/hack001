@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { Formik, useFormik } from "formik"
+/* import Account from "./Account" */
 
 function InitialPage() {
 
