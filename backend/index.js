@@ -6,9 +6,12 @@ const {
   getloginInfo,
   createUser,
   getUserById,
-  toggleFavoriteStatus
+  togglePrivateStatus,
+  updateUserProfile
 } = require("./helperMongo")
 
+
+//criar conta
 app.post("/authentication", async (req, res) => {
   try {
     console.log("entrei")
@@ -26,6 +29,7 @@ app.post("/authentication", async (req, res) => {
   }
 })
 
+//login
 app.patch("/authentication", async (req, res) => {
   try {
     const loginInfo = await getloginInfo(req.body)
@@ -39,6 +43,7 @@ app.patch("/authentication", async (req, res) => {
   }
 })
 
+//obtem a toda a info do utilizador
 app.get("/users/:id", async (req, res) => {
   try {
     const user = await getUserById(req.params.id)
@@ -52,14 +57,26 @@ app.get("/users/:id", async (req, res) => {
   }
 })
 
-app.patch("/toggleFavorite", async (req, res) => {
+//guarda alteracoes ao perfil do utilizador
+app.patch("/authentication/:id", async (req, res) => {
   try {
-      await toggleFavoriteStatus(req.body.id, req.body.privateState)
+    const mongoAnswer = await updateUserProfile(req.params.id, req.body)
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+//toggle à privacidade do perfil
+app.patch("/togglePrivate", async (req, res) => {
+  try {
+    await togglePrivateStatus(req.body.id, req.body.privateState)
     res.sendStatus(200)
-  } catch(err) {
+  } catch (err) {
     console.log(err)
   }
 })
+
+//pesquisa na pagina inicial
 ////////////////////////////////////////
 app.get("/search", async (req, res) => {
   try {

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router';
 import styles from '../styles/Profile.module.css'
 import Switch from '@material-ui/core/Switch';
+import { useFormik } from 'formik';
 
 function Profile() {
     const [user, setUser] = useState()
@@ -23,14 +24,12 @@ function Profile() {
 
     const handleChange = () => {
         setPrivateState(!privateState);
-        fetch("/toggleFavorite", {
+        fetch("/togglePrivate", {
             method: "PATCH",
             body: JSON.stringify({ privateState: !privateState, id }),
             headers: { "Content-Type": "application/json" }
         })
     };
-
-
 
     return (
         <>
@@ -38,12 +37,18 @@ function Profile() {
                 <h2>Profile</h2>
                 {
                     !editState ?
-                        <UserDisplay user={user} handleChange={() => handleChange()} />
+                        <div>
+                            <UserDisplay user={user} handleChange={() => handleChange()} toggleEdit={() => setEditState(true)} />
+
+                        </div>
                         :
-                        <EditUserProfile />
+                        <div>
+                            <EditUserProfile id={id} user={user} toggleEdit={() => setEditState(false)} />
+                        </div>
+
                 }
 
-                <button onClick={() => { setEditState(true) }}>Alterar perfil</button>
+
 
             </div>
         </>
@@ -59,6 +64,7 @@ function UserDisplay(props) {
                     <p>{props.user.fullName}</p>
                     <p>{props.user.email}</p>
                     <p>{props.user.username}</p>
+                    <p>{props.user.description}</p>
                     <Switch
                         checked={props.privateState}
                         onChange={props.handleChange}
@@ -68,17 +74,72 @@ function UserDisplay(props) {
                     />
                 </div>
             }
+            <button onClick={() => props.toggleEdit()}>Alterar perfil</button>
         </div>
     )
 }
 
 function EditUserProfile(props) {
     const fileInputRef = useRef(null);
-    function uploadPhoto(e) {
-        console.log(e.target.value)
+
+    function saveChanges(values) {
+        fetch(`/authentication/${props.id}`, {
+            method: "PATCH",
+            body: JSON.stringify(values),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
     }
+
+    function submitChanges(values) {
+        props.toggleEdit()
+        saveChanges(values)
+    }
+
+    const formik = useFormik({
+
+        initialValues: {
+            username: props.user.username, fullName: props.user.fullName, email: props.user.email,
+            description: props.user.description
+        },
+
+        onSubmit: values => {
+            submitChanges(values)
+        }
+    });
+
     return (
-        <input type="file" ref={fileInputRef} onChange={(e) => { uploadPhoto(e) }} />
+        <div>
+            <form onSubmit={formik.handleSubmit}>
+                <div className={styles.inputs}>
+                    <input className={styles.label}
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="exemplo@outlook.com"
+                        onChange={formik.handleChange}
+                        value={formik.values.email}
+                    />
+                </div>
+                <div className={styles.inputs}>
+                    <input className={styles.label}
+                        id="description"
+                        name="description"
+                        type="text"
+                        placeholder=""
+                        onChange={formik.handleChange}
+                        value={formik.values.description}
+                    />
+                </div>
+                <div>
+                    {/* <input type="file" ref={fileInputRef} onChange={(e) => { uploadPhoto(e) }} /> */}
+                </div>
+                <button type="submit">Guardar Alterações</button>
+            </form>
+
+
+        </div>
     )
 }
 
