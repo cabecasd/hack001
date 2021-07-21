@@ -5,9 +5,10 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import InitialPage from './InitialPage';
+import InitialPage from './pages/InitialPage';
 import HomePage from './components/HomePage';
 import Profile from './components/Profile';
+import AccountForm from './components/Account';
 
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
             <Route path="/profile">
               <NavBar/>
               <Profile />
+            </Route>
+            <Route path="/account">
+              <AccountForm />
             </Route>
 
             <Route path="/home">
