@@ -21,7 +21,7 @@ function App() {
       </div>
         <div>
           <Switch>
-            <Route path="/profile">
+            <Route path="/profile/:id">
               <NavBar/>
               <Profile />
             </Route>

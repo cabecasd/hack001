@@ -2,8 +2,9 @@ import styles from '../styles/HomePage.module.css'
 import BoxAdv from './BoxAdv';
 
 function HomePage() {
-    function onSearch() {
-        
+    async function handleSearch(e) {
+        const res = await fetch(`/search?q=${e.target.value}`)
+
     }
     return (
         <>
@@ -14,8 +15,9 @@ function HomePage() {
                 type="text"
                 id="pesquisa"
                 placeholder="Podes pesquisar por..."
+                onChange={(e) => handleSearch(e)}
             />
-            <button className = {styles.button} onClick={onSearch}>Pesquisar</button>
+            <button className = {styles.button} >Pesquisar</button>
         </div>
             <BoxAdv />
             <BoxAdv />

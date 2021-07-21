@@ -31,6 +31,12 @@ function checkIfPasswordIsRight(user, password) {
     }
 }
 
+async function getUserById(id) {
+    const collection = await getCollection("users","users")
+    const user = await collection.find({_id: ObjectId(id)}).toArray()
+    return user
+}
+
 async function createUser(values) {
     const collection = await getCollection("users","users")
     //pesquisa na colecao se o user ja existe
@@ -59,5 +65,6 @@ async function getloginInfo(values) {
 
 module.exports = {
     getloginInfo,
-    createUser
+    createUser,
+    getUserById
 }

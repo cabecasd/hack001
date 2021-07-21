@@ -4,7 +4,8 @@ const app = express();
 app.use(express.json())
 const {
   getloginInfo,
-  createUser
+  createUser,
+  getUserById
 } = require("./helperMongo")
 
 app.post("/authentication", async (req, res) => {
@@ -31,6 +32,28 @@ app.patch("/authentication", async (req, res) => {
         loginInfo
       })
     } else { res.sendStatus(404) }
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+app.get("/users/:id", async (req, res) => {
+  try {
+    const user = await getUserById(req.params.id)
+    console.log(user.length > 0)
+    if (user) {
+      res.status(200).json({ user: user[0] })
+    } else {
+      res.sendStatus(404)
+    }
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+app.get("/search", async (req, res) => {
+  try {
+    console.log(req.query.q)
   } catch (error) {
     console.log(error)
   }
