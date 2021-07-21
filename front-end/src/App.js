@@ -1,29 +1,32 @@
 import './App.css';
-import Navbar from './components/HomePage';
+import NavBar from './components/Navbar';
 import {
   BrowserRouter,
   Switch,
   Route
 } from "react-router-dom";
-import InitialPage from './pages/InitialPage';
+import InitialPage from './InitialPage';
+import HomePage from './components/HomePage';
+import Profile from './components/Profile';
+
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <div>
+        
+      </div>
         <div>
-          <Navbar />
-        </div>
-        <div>
-
           <Switch>
-
             <Route path="/profile">
-              <p>perfil</p>
+              <NavBar/>
+              <Profile />
             </Route>
 
             <Route path="/home">
-              <p>homepage</p>
+              <NavBar/>
+              <HomePage />
             </Route>
             <Route path="/">
               <InitialPage />

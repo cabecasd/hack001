@@ -1,11 +1,11 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
 import { useFormik } from "formik"
+import styles from './styles/Login.module.css'
 
 function InitialPage() {
-
     return (
-        <div>
+        <div className = {styles.login}>
             <div>
                 <Login />
 
@@ -53,7 +53,7 @@ const Login = () => {
                     onChange={formik.handleChange}
                     value={formik.values.password}
                 />
-                <button className="login" variant="primary" type="submit">Login</button>
+                <Link to = "/profile"><button className="login" variant="primary" type="submit">Login</button></Link>
             </form>
         </div>
     )
