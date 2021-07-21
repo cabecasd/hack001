@@ -73,9 +73,26 @@ async function getloginInfo(values) {
     }
 }
 
+async function getAllAds() {
+    const collection = await getCollection("users", "users")
+    const allAds = await collection.find().toArray()
+    let adsArray = []
+    for (let i = 0; i < allAds.length; i++) {
+        const ad = allAds[i]
+        if(!ad.private) {
+            adsArray.push({
+                username: ad.username,
+                fullName: ad.fullName,
+                description: ad.description
+            })
+        }
+    }
+    return adsArray
+}
+
 async function updateUserProfile(userId, values) {
     const collection = await getCollection("users", "users")
-    await collection.updateOne(
+    const res = await collection.updateOne(
         { _id: ObjectId(userId) },
         {
             $set: {
@@ -84,6 +101,7 @@ async function updateUserProfile(userId, values) {
             }
         }
     )
+    return res
 }
 
 module.exports = {
@@ -91,5 +109,6 @@ module.exports = {
     createUser,
     getUserById,
     togglePrivateStatus,
-    updateUserProfile
+    updateUserProfile,
+    getAllAds
 }
