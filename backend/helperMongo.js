@@ -19,39 +19,48 @@ async function getCollection(dbName, collectionName) {
 }
 
 async function findUserByUsername(collection, values) {
-    const user = await collection.find({username: values.username}).toArray()
+    const user = await collection.find({ username: values.username }).toArray()
     return user
 }
 
 function checkIfPasswordIsRight(user, password) {
     if (user[0].password === password) {
-        return {user: user[0]}
+        return { user: user[0] }
     } else {
         return false
     }
 }
 
 async function getUserById(id) {
-    const collection = await getCollection("users","users")
-    const user = await collection.find({_id: ObjectId(id)}).toArray()
+    const collection = await getCollection("users", "users")
+    const user = await collection.find({ _id: ObjectId(id) }).toArray()
     return user
 }
 
 async function createUser(values) {
-    const collection = await getCollection("users","users")
+    const collection = await getCollection("users", "users")
     //pesquisa na colecao se o user ja existe
     const alreadyExists = await findUserByUsername(collection, values)
     //se ja existir nao deixa criar conta
     if (alreadyExists.length > 0) {
         return false
     } else {
+        values.private = false
         const user = await collection.insertOne(values)
         return user
     }
 }
 
+async function toggleFavoriteStatus(userId, newState) {
+    const collection = await getCollection("users", "users")
+    await collection.updateOne(
+        { _id: ObjectId(userId) },
+        { $set: { private: newState } }
+    )
+}
+
 async function getloginInfo(values) {
-    const collection = await getCollection("users","users")
+    const collection = await getCollection("users", "users")
     const user = await findUserByUsername(collection, values)
     if (user.length === 0) {
         //se o username nao existe, para a funcao
@@ -66,5 +75,6 @@ async function getloginInfo(values) {
 module.exports = {
     getloginInfo,
     createUser,
-    getUserById
+    getUserById,
+    toggleFavoriteStatus
 }

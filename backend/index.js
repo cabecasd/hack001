@@ -5,7 +5,8 @@ app.use(express.json())
 const {
   getloginInfo,
   createUser,
-  getUserById
+  getUserById,
+  toggleFavoriteStatus
 } = require("./helperMongo")
 
 app.post("/authentication", async (req, res) => {
@@ -41,8 +42,7 @@ app.patch("/authentication", async (req, res) => {
 app.get("/users/:id", async (req, res) => {
   try {
     const user = await getUserById(req.params.id)
-    console.log(user.length > 0)
-    if (user) {
+    if (user.length > 0) {
       res.status(200).json({ user: user[0] })
     } else {
       res.sendStatus(404)
@@ -52,6 +52,15 @@ app.get("/users/:id", async (req, res) => {
   }
 })
 
+app.patch("/toggleFavorite", async (req, res) => {
+  try {
+      await toggleFavoriteStatus(req.body.id, req.body.privateState)
+    res.sendStatus(200)
+  } catch(err) {
+    console.log(err)
+  }
+})
+////////////////////////////////////////
 app.get("/search", async (req, res) => {
   try {
     console.log(req.query.q)
