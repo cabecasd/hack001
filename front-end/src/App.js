@@ -1,4 +1,6 @@
 import './App.css';
+import Navbar from './components/HomePage';
+import { Route, Switch } from "react-router-dom";
 import {
   BrowserRouter,
   Switch,
@@ -9,6 +11,7 @@ import InitialPage from './InitialPage';
 function App() {
   return (
     <div className="App">
+      <Route exact path="/home" children={<Navbar />} />
       <BrowserRouter>
         <div>
         </div>
