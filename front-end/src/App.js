@@ -1,21 +1,23 @@
 import './App.css';
+import Navbar from './components/HomePage';
 import {
   BrowserRouter,
   Switch,
   Route
 } from "react-router-dom";
-import InitialPage from './InitialPage';
+import InitialPage from './pages/InitialPage';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <div>
+          <Navbar />
         </div>
         <div>
 
           <Switch>
-            
+
             <Route path="/profile">
               <p>perfil</p>
             </Route>
