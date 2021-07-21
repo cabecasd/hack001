@@ -1,12 +1,18 @@
-import React from 'react'
-import { BsFillHouseDoorFill } from "react-icons/bs";
-import { Link } from "react-router-dom"; 
+import styles from '../styles/HomePage.module.css'
 
-
-function Navbar() {
-        return <div className="navBar">
-            <Link to = "/home"><BsFillHouseDoorFill className="casa" />Voltar para a HOME</Link>
+function HomePage() {
+    
+    return (
+        <>
+        <div className={styles.home}>
+            <h2>HomePage</h2>
+            <div className = {styles.box}>
+                <p>Imagem</p><br></br>
+                <p>texto sobre o anúncio</p>
+            </div>
         </div>
+        </>
+    )
 }
 
-export default Navbar;
+export default HomePage;

@@ -1,30 +1,32 @@
 import './App.css';
-import Navbar from './components/HomePage';
-import { Route, Switch } from "react-router-dom";
+import NavBar from './components/Navbar';
 import {
   BrowserRouter,
   Switch,
   Route
 } from "react-router-dom";
 import InitialPage from './InitialPage';
+import HomePage from './components/HomePage';
+import Profile from './components/Profile';
+
 
 function App() {
   return (
     <div className="App">
-      <Route exact path="/home" children={<Navbar />} />
       <BrowserRouter>
+      <div>
+        
+      </div>
         <div>
-        </div>
-        <div>
-
           <Switch>
-            
             <Route path="/profile">
-              <p>perfil</p>
+              <NavBar/>
+              <Profile />
             </Route>
 
             <Route path="/home">
-              <p>homepage</p>
+              <NavBar/>
+              <HomePage />
             </Route>
             <Route path="/">
               <InitialPage />
