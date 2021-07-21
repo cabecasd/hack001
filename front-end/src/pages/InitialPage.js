@@ -7,8 +7,9 @@ function InitialPage() {
     return (
         <div className={styles.login}>
             <div>
-                <Login />
-
+                <div className={styles.loginbox}>
+                    <Login />
+                </div>
                 <Link to="/account">
                     <button>
                         criar conta
@@ -45,7 +46,7 @@ const Login = () => {
             console.log(data.loginInfo.user._id)
             history.push(`/profile/${data.loginInfo.user._id}`)
         }
-       
+
     }
 
     return (

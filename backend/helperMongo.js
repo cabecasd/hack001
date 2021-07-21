@@ -39,7 +39,8 @@ async function createUser(values) {
     if (alreadyExists.length > 0) {
         return false
     } else {
-        return await collection.insertOne(values)
+        const user = await collection.insertOne(values)
+        return user
     }
 }
 

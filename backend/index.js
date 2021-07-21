@@ -9,10 +9,12 @@ const {
 
 app.post("/authentication", async (req, res) => {
   try {
-    const createStatus = await createUser(req.body.values)
+    const createStatus = await createUser(req.body)
     //se o status for true e porque o usuario ainda nao existe na base de dados, logo cria conta
     if (createStatus) {
-      res.sendStatus(200)
+      res.status(200).json({
+        createStatus
+      })
       //senao informa o usuario que o username ja esta em uso
     } else { res.sendStatus(400) }
 
