@@ -10,7 +10,6 @@ function Advertisement() {
                 <div className={styles.image}><p>Imagem</p></div><br></br>
                 <div className={styles.text}><p >texto sobre o anúncio</p></div>
             </div>
-            
         </div>
         </>
     )

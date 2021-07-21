@@ -10,6 +10,7 @@ const {
 
 app.post("/authentication", async (req, res) => {
   try {
+    console.log("entrei")
     const createStatus = await createUser(req.body)
     //se o status for true e porque o usuario ainda nao existe na base de dados, logo cria conta
     if (createStatus) {
@@ -54,6 +55,7 @@ app.get("/users/:id", async (req, res) => {
 app.get("/search", async (req, res) => {
   try {
     console.log(req.query.q)
+    console.log("fasadfa")
   } catch (error) {
     console.log(error)
   }
@@ -62,3 +64,4 @@ app.get("/search", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
+

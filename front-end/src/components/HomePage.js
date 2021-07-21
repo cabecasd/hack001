@@ -6,6 +6,7 @@ function HomePage() {
         const res = await fetch(`/search?q=${e.target.value}`)
 
     }
+    
     return (
         <>
         <div className={styles.home}>
@@ -14,6 +15,7 @@ function HomePage() {
             <input className = {styles.searchBar}
                 type="text"
                 id="pesquisa"
+                onChange = {(e) => handleSearch(e)}
                 placeholder="Podes pesquisar por..."
                 onChange={(e) => handleSearch(e)}
             />
@@ -28,5 +30,6 @@ function HomePage() {
         </>
     )
 }
+
 
 export default HomePage;
