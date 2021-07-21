@@ -1,13 +1,19 @@
 import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
 import { useFormik } from "formik"
-import styles from './styles/Login.module.css'
+import styles from '../styles/Login.module.css'
 
 function InitialPage() {
     return (
         <div className = {styles.login}>
             <div>
                 <Login />
+
+                <Link to="/account">
+                    <button>
+                        criar conta
+                    </button>
+                </Link>
 
                 <Link to="/home">
                     <button>
