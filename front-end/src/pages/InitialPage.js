@@ -8,22 +8,26 @@ function InitialPage() {
         <div className={styles.loginOuter}>
             <div>
                 <img src="sintraamiga.png"></img>
-                <div className={styles.login}>
-                    <Login />
-                <div>
-                <Link to="/account">
-                    <button className={styles.buttonCreate}>
-                        Criar Conta
-                    </button>
-                </Link>
 
-                <Link to="/home">
-                    <button className={styles.buttonAssociation}>
-                        Sou uma Associação!
-                    </button>
-                </Link>
-                </div>
-                </div>
+                    <div className={styles.boxes}>
+                        <div className={styles.login}>
+                            <Login />
+                            <div>
+                                <Link to="/account">
+                                        <p className={styles.registoBtn}> Ainda não possuí conta? Faça seu registo <b>aqui.</b> </p>
+                                </Link>
+                            </div>
+                        </div>
+
+                        <div className={styles.boxA}>
+                            <p>És uma associação e andas a procura de jovens para realizar trabalhos voluntários?</p>
+                            <Link to="/home">
+                                <button className={styles.buttonAssociation}>
+                                    Entrar
+                                </button>
+                            </Link>
+                        </div>
+                    </div> 
             </div>
         </div>
     )
@@ -56,11 +60,11 @@ const Login = () => {
         <div>
             <form onSubmit={formik.handleSubmit}>
                 <div>
-                <label className= {styles.formlabel1} htmlFor="username">Utilizador</label><br />
+                <label className= {styles.formlabel} htmlFor="username">Utilizador</label><br />
                 <input
                     type="text"
                     id="username"
-                    className="forminput"
+                    className={styles.forminput}
                     placeholder="Digite o seu nome..."
                     onChange={formik.handleChange}
                     value={formik.values.username}
@@ -71,7 +75,7 @@ const Login = () => {
                 <input
                     type="text"
                     id="password"
-                    className="forminput"
+                    className={styles.forminput}
                     placeholder="Introduza a sua password..."
                     onChange={formik.handleChange}
                     value={formik.values.password}
