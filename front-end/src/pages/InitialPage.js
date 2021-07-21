@@ -73,8 +73,9 @@ const Login = () => {
                     onChange={formik.handleChange}
                     value={formik.values.password}
                 />
-                </div>
+                
                 <button className="login" variant="primary" type="submit">Login</button>
+        </div>
             </form>
         </div>
     )
