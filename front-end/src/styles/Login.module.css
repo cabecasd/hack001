@@ -1,9 +1,49 @@
+/* TIRAR DÚVIDAS COM A ELOISA COM RELAÇÃO AS BOXES */
+
+
+
+.boxes{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.login {
+    display: inline-block;
+    height: 50vh;
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    background-color: #CCDDB7;
+    border-radius: 30px;
+    margin-bottom: 2px;
+    margin-right: 20px;
+    
+}
+
+.boxA {
+        display: inline-block;
+        height: 50vh;
+    width: 25vw;
+        display: flex;
+        flex-direction: column;
+        background-color: #EF27A6;
+        border-radius: 30px;
+        font-size: 1rem;
+}
+
+.boxA p { /* poderia ter outra cor */
+    margin-top: 80px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
 
 .loginOuter {
     width: 100vw;
     height: 100vh;
-    background-color: #fff;
-    color: #ac442c;
+    background-color: #F5F5F5;
+    color: black;
     font-weight: 500;
     display: flex;
     justify-content: center;
@@ -20,10 +60,20 @@
 
 
 .button {
-    margin-left: 0.5rem;
+
+    width: 40%;
+    height: 50px;
+    margin-top: 10px;
+    /* margin-right: 10px; */
+    border-radius: 3px;
+    background: #f5f5f5;
+    border: none;
+    color: black;
+    font-size: 1rem;
+    /* margin-left: 0.5rem;
     width: 70px;
     height: 30px;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Comfortaa', sans-serif;
     font-size: 15px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -35,33 +85,33 @@
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
     transition: all 0.5s ease 0s;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 10px; */
 }
 
-.buttonCreate {
-    margin-left: 0.5rem;
-    width: 100px;
-    height: 50px;
-    font-family: 'Raleway', sans-serif;
-    font-size: 15px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #000;
-    font-weight: 1000;
-    background-color: #ccc;
-    border: none;
-    border-radius: 3px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
-    transition: all 0.5s ease 0s;
-    cursor: pointer;
-    margin-top: 10px;
+.registoBtn {
+    width: 80%;
+    font-size: 1rem;
+    text-decoration: none;
+    margin-top: 20px;
+    margin-left: 40px;
+    
 }
 
 .buttonAssociation {
-    margin-left: 0.5rem;
+
+    width: 40%;
+    height: 50px;
+    margin-top: 10px;
+    /* margin-right: 10px; */
+    border-radius: 3px;
+    background: #f5f5f5;
+    border: none;
+    color: black;
+    font-size: 1rem;
+   /*  margin-left: 0.5rem;
     width: 160px;
     height: 50px;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Comfortaa', sans-serif;
     font-size: 15px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -73,5 +123,25 @@
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
     transition: all 0.5s ease 0s;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 10px; */
 }
+
+.formlabel {
+    display: block;
+    font-size: 1rem;
+    margin-top: 10px; 
+    padding: px;
+    margin-left: 25px;
+    text-align: left;
+    color: black;
+  }
+  
+  .forminput {
+    padding-left: 10px;
+    margin-bottom: 10px; 
+    outline: none;
+    border-radius: 3px;
+    height: 40px;
+    width: 80%;
+    border: none;
+  }
