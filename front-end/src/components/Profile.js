@@ -35,7 +35,7 @@ function Profile() {
         <>
             <img className= {styles1.background} src="../cleaning.jpg"></img>
             <div className={styles.profile}>
-                <h2>Profile</h2>
+                
                 {
                     !editState ?
                         <div>
@@ -61,6 +61,25 @@ function UserDisplay(props) {
     return (
         <div className={styles.profile}>
             <div className={styles.personaldata}>
+
+            <h2>Profile</h2>
+            {
+                props.user && <div >
+                    <p>{props.user.fullName}</p>
+                    <p>{props.user.email}</p>
+                    <p>{props.user.username}</p>
+                    <p>{props.user.description}</p>
+                    <Switch
+                        checked={props.privateState}
+                        onChange={props.handleChange}
+                        color="primary"
+                        name="checkedB"
+                        inputProps={{ 'aria-label': 'primary checkbox' }}
+                    />
+                </div>
+            }
+            <button className={styles.button} onClick={() => props.toggleEdit()}>Alterar perfil e criar anúncio</button>
+
                 {
                     props.user && <div >
                         <p>{props.user.fullName}</p>
@@ -79,6 +98,7 @@ function UserDisplay(props) {
                     </div>
                 }
                 <button className={styles.button} onClick={() => props.toggleEdit()}>Alterar perfil e criar anúncio</button>
+
             </div>
         </div>
     )

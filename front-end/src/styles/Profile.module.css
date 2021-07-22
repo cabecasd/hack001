@@ -14,10 +14,10 @@
 .personaldata {
     width: 91vw;
     height: 40vh;
-    color: #ac442c;
     font-weight: 500;
     display: flex;
     flex-direction: column;
+    background-color: #8CABBE;
 }
 
 .button {
