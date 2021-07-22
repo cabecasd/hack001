@@ -14,7 +14,7 @@
     width: 25vw;
     display: flex;
     flex-direction: column;
-    background-color: #CCDDB7;
+    background-color: #8CABBE ;
     border-radius: 30px;
     margin-bottom: 2px;
     margin-right: 20px; 
@@ -29,7 +29,7 @@
         width: 25vw;
         display: flex;
         flex-direction: column;
-        background-color: #EF27A6;
+        background-color: #8CABBE  ;
         border-radius: 30px;
         font-size: 1rem;
         box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
