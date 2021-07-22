@@ -72,6 +72,7 @@
     margin-bottom: 20px;
     border-radius: 10px;
     background-color: rgba(140, 171, 190, 0.9); 
+
 }
 
 .box .image {
@@ -79,11 +80,13 @@
     object-fit: cover;
     width: 150px;
     height: 150px;
+    margin: 13px 0px 13px 13px;
 }
 
 .block {
     display: flex;
     flex-direction: column;
-    margin-left: 20%;
+    margin-left: 5%;
     align-items: flex-start;
+    text-align: left;
 }

@@ -2,19 +2,16 @@
     z-index: 99999999999;
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    justify-content: space-between;
     background-color: #8CABBE; 
     top: 0; 
     left: 0;
-    width: 100%;
     height: 8rem;
-    padding: 0 1rem;
+    padding-right: 3rem;
 }
 
 .logo {
-    margin-left: 60rem;
     height: 90%;
-    
 }
 
 .home {

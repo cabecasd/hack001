@@ -1,30 +1,53 @@
-.advertisement h2{
-    margin-top: 8rem;
-    margin-bottom: 2rem;
+.advertisement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100vw;
+}
 
+h1 {
+    padding: 1rem;
 }
 
 .box {
     display: flex;
+    flex-direction: column;
     padding: 2rem;
     width: 80vw;
     border: 1px solid #ccc;
     border-radius: 30px;
-    margin-bottom: 5px;
-    margin-left: 8rem;
     background-color: rgba(140, 171, 190, 0.9);
-    overflow: hidden;
 }
 
-
-.image {
-    height: 280px;
-    width: 250px;
+.topRow {
     display: flex;
-    flex-direction: row;   
-    overflow: hidden;
-    flex-wrap: nowrap;
-    
-    margin-top: 10px;
-
+    flex-direction: row;
 }
+
+.avatar {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.summAndCon {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 3rem;
+}
+
+.contacts {
+    margin-top: 1rem;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+.description {
+    margin-top: 2rem;
+}
+

@@ -1,0 +1,37 @@
+{
+    "users": [
+        {
+            "username": "adolfo123",
+            "fullName": "Adolfo Pinto",
+            "email": "adolfinho@sapo.live.com.pt",
+            "password": "adolfo",
+            "private": false,
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "cellNumber": "938373462",
+            "summary": "pharetra massa massa ultricies mi quis hendrerit dolor magna eget est lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque",
+            "path": "/photos/58bf2d55-88c7-4453-a743-2dc5c8e4b926"
+        },
+        {
+            "username": "cristovao",
+            "fullName": "João Fonseca",
+            "email": "joaozinho@gmail.com",
+            "password": "awfsa",
+            "private": false,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel fringilla est ullamcorper eget. Amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus. Iaculis at erat pellentesque adipiscing commodo elit at imperdiet dui. Viverra orci sagittis eu volutpat odio facilisis mauris sit amet. Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Consequat semper viverra nam libero justo laoreet sit. In massa tempor nec feugiat nisl pretium fusce id velit. Arcu non odio euismod lacinia at quis. Cursus vitae congue mauris rhoncus aenean vel elit scelerisque mauris. Tempus egestas sed sed risus pretium. Condimentum lacinia quis vel eros donec ac odio tempor. Odio pellentesque diam volutpat commodo sed. Netus et malesuada fames ac turpis egestas maecenas pharetra.",
+            "cellNumber": "928423169",
+            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "path": "/photos/7e02f171-4e80-4bd3-99c4-2122f47e559f"
+        },
+        {
+            "username": "reidosmimos",
+            "fullName": "Xavier Ribeiro",
+            "email": "xavier.ribeiro@outlook.pt",
+            "password": "xavier",
+            "private": false,
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "cellNumber": "928173659",
+            "summary": "pharetra massa massa ultricies mi quis hendrerit dolor magna eget est lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque",
+            "path": "/photos/5787977c-8cb7-4a0f-ab10-dc62e533b847"
+        }
+    ]
+}
