@@ -12,7 +12,7 @@ function BoxAdv(props) {
                 <img src={`/photo/${toLink}`} className={styles.image}></img>
                 <div className={styles.block}>
                     <h4>{props.ad.fullName}</h4>
-                    <p>{props.ad.description}</p>
+                    <p>{props.ad.summary}</p>
                 </div>
             </div>
         </Link>

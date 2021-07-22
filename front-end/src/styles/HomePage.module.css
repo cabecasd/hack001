@@ -74,8 +74,10 @@
 }
 
 .box .image {
-    min-width: 23%;
-    max-width: 23%;
+    border-radius: 50%;
+    object-fit: cover;
+    width: 150px;
+    height: 150px;
 }
 
 .block {

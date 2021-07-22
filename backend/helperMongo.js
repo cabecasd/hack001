@@ -56,6 +56,7 @@ async function createUser(values) {
         values.private = false
         values.description = ""
         values.cellNumber = ""
+        values.summary = ""
         const user = await collection.insertOne(values)
         return user
     }
@@ -92,7 +93,8 @@ async function getAllAds() {
             adsArray.push({
                 username: ad.username,
                 fullName: ad.fullName,
-                description: ad.description
+                description: ad.description,
+                summary: ad.summary,
             })
         }
     }
@@ -114,6 +116,17 @@ async function updateUserProfile(userId, values) {
     return res
 }
 
+async function getPossibleAdsByDescription(values) {
+    const collection = await getCollection("users", "users")
+    const foundDescriptions = await collection.find({ description: { $regex: `.*${values}.*`, $options: "i" } }).toArray()
+    return foundDescriptions
+}
+async function getPossibleAdsBySummary(values) {
+    const collection = await getCollection("users", "users")
+    const foundDescriptions = await collection.find({ summary: { $regex: `.*${values}.*`, $options: "i" } }).toArray()
+    return foundDescriptions
+}
+
 
 async function insertAdvertising(advertising){ //insere na base de dados do front na collection advertasing
     const collection = await getCollection(DB_NAME, "advertising");
@@ -129,5 +142,7 @@ module.exports = {
     updateUserProfile,
     getAllAds,
     insertAdvertising,
-    getUserByUsername
+    getUserByUsername,
+    getPossibleAdsByDescription,
+    getPossibleAdsBySummary
 }

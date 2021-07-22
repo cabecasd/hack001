@@ -23,8 +23,8 @@ function Advertisement() {
                 <h2>Anúncio</h2>
 
                 {
-                    ad.path && <div className={styles.box}>
-                        <img className={styles.image} src={`/photo/${ad.username}`}></img><br></br>
+                    ad && <div className={styles.box}>
+                        <div className={styles.image}><img src={`/photo/${ad.username}`}></img></div><br></br>
                         <div className={styles.text}><p >texto sobre o anúncio</p></div>
                     </div>
                 }
