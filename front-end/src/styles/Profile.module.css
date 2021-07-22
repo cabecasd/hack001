@@ -51,6 +51,7 @@
     cursor: pointer;
     justify-content: center;
     align-items: center; */
+
 .profile {
     margin: 6rem;
 }
@@ -60,3 +61,4 @@ textarea {
     height: 17vh;
     width: 30vw;
 }
+
