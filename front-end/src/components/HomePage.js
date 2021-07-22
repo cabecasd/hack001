@@ -23,6 +23,7 @@ function HomePage() {
     }
 
     return (
+    
         <div className={styles.mainWrapper}>
             <div className={styles.home}>
                 <h2>Feed</h2>
@@ -44,6 +45,7 @@ function HomePage() {
                     })
                 }
             </div>
+
         </div>
     )
 }
