@@ -23,7 +23,7 @@ function InitialPage() {
                         </div>
 
                         <div className={styles.boxA}>
-                            <p>És uma associação e procuras jovens para realizar trabalhos voluntários?</p>
+                            <p>É uma associação e procura jovens para realizar trabalhos voluntários?</p>
                             <Link to="/home">
                                 <button className={styles.buttonAssociation}>
                                     Entrar

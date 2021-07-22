@@ -34,6 +34,7 @@ function HomePage() {
         <div className={styles.mainWrapper}>
             <div className={styles.home}>
                 <h2>Feed</h2>
+                <h4>Aqui pode encontrar um perfil que se enquadre com a iniciativa da sua associação.</h4>
                 <div>
                     <input className={styles.searchBar}
                         type="text"
