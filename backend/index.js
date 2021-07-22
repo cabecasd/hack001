@@ -106,6 +106,7 @@ app.get("/search", async (req, res) => {
 app.post("/advertising", async (req, res) => { //api que recebe do frontend o anuncio para criação na base de dados
   try {
     const id = await insertAdvertising(req.body)
+    res.status(200).json({ id })
   } catch (error) {
     console.log(error)
   }
