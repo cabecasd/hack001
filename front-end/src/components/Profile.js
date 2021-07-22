@@ -33,9 +33,9 @@ function Profile() {
 
     return (
         <>
-            <img className= {styles1.background} src="../cleaning.jpg"></img>
+            <img className={styles1.background} src="../cleaning.jpg"></img>
             <div className={styles.profile}>
-                
+
                 {
                     !editState ?
                         <div>
@@ -61,17 +61,28 @@ function UserDisplay(props) {
     return (
         <div className={styles.profile}>
             <div className={styles.personaldata}>
-
-            <h2>Perfil</h2>
+                <h2>Perfil</h2>
 
                 {
-                    props.user && <div >
-                        <p>{props.user.fullName}</p>
-                        <p>{props.user.email}</p>
-                        <p>{props.user.username}</p>
-                        <p>{props.user.summary}</p>
-                        <p>{props.user.description}</p>
-                        <img src={`/photo/${props.user.username}`} />
+                    props.user && <div className={styles.profileBlock}>
+                        <div>
+                            <h4>{props.user.fullName}</h4>
+                        </div>
+
+                        <div className={styles.info}>
+                            <img src={`/photo/${props.user.username}`} className={styles.image} />
+                            <p>{props.user.username}</p>
+                            <div className={styles.contacts}>
+                                <p>{props.user.email}</p>
+                                <p>{props.user.cellNumber}</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <p>{props.user.summary}</p>
+                            <p>{props.user.description}</p>
+                        </div>
+
                         <Switch
                             checked={props.privateState}
                             onChange={props.handleChange}
@@ -181,13 +192,13 @@ function EditUserProfile(props) {
                         value={formik.values.summary}
                     />
                 </div>
-                
+
                 <div className={styles.fileInputWrapper}>
                     <label htmlFor="file-input">
                         <img src={`/photo/${props.user.username}`} />
                     </label>
 
-                    <input id="file-input" type="file" ref={fileInputRef}/>
+                    <input id="file-input" type="file" ref={fileInputRef} />
                 </div>
                 <button className={styles.btnSave} type="submit">Guardar Alterações</button>
             </form>

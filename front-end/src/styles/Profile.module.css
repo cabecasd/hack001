@@ -3,26 +3,32 @@
 .profile h2{
     
     width: 40vw;
-    /* height: 50vh; */
-    /* background-color: #e4bb8b; */
     border-radius: 30px;
     display: flex;
     justify-content: center;
+    
+}
+
+.profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .personaldata {
-    width: 25vw;
-    height: 46vh;
+    width: 70vw;
+    height: 70vh;
     font-weight: 500;
     border-radius:30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left:500px;
     background-color: #8CABBE;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
     transition: all 0.5s ease 0s;
+    padding: 1rem;
+
 }
 
 .button {
@@ -42,8 +48,8 @@
 
 
 .profile {
-    margin: 6rem;
-    font-size: 1.4rem;
+    margin-top: 1rem;
+    font-size: 1rem;
     
 }
 
@@ -117,6 +123,22 @@ textarea {
 
 .label{
     font-size: 1.4rem;
+}
+
+
+.image {
+    height: 150px;
+    width: 150px;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
 }
 
 
