@@ -63,22 +63,6 @@ function UserDisplay(props) {
             <div className={styles.personaldata}>
 
             <h2>Profile</h2>
-            {
-                props.user && <div >
-                    <p>{props.user.fullName}</p>
-                    <p>{props.user.email}</p>
-                    <p>{props.user.username}</p>
-                    <p>{props.user.description}</p>
-                    <Switch
-                        checked={props.privateState}
-                        onChange={props.handleChange}
-                        color="primary"
-                        name="checkedB"
-                        inputProps={{ 'aria-label': 'primary checkbox' }}
-                    />
-                </div>
-            }
-            <button className={styles.button} onClick={() => props.toggleEdit()}>Alterar perfil e criar anúncio</button>
 
                 {
                     props.user && <div >
