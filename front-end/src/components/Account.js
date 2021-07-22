@@ -1,7 +1,8 @@
 import React from "react";
 import { useFormik } from "formik";
 import { useHistory } from "react-router";
-import styles from "../styles/Account.module.css"
+import styles from "../styles/Account.module.css";
+import styles1 from '../styles/HomePage.module.css';
 
 const AccountForm = () => {
   const history = useHistory()
@@ -34,7 +35,8 @@ const AccountForm = () => {
     }
   }
   return (
-
+    <>
+    <img className= {styles1.background} src="../background.jpg"></img>
     <div className={styles.account}>
       <div className={styles.formdata}>
         <form onSubmit={formik.handleSubmit}>
@@ -89,7 +91,7 @@ const AccountForm = () => {
         </form>
       </div>
     </div>
-
+    </>
   );
 };
 
