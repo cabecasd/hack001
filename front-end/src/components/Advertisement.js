@@ -18,7 +18,7 @@ function Advertisement() {
     }
     return (
         <>
-            <img className= {styles1.background} src="../background.jpg"></img>
+            <img className= {styles1.background} src="../cleaning.jpg"></img>
             <div className={styles.advertisement}>
                 <h2>Anúncio</h2>
 

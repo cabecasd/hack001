@@ -7,7 +7,7 @@ function InitialPage() {
     return (
         <>
         
-        <div className={styles.backgroundWrapper}><img className={styles.background} src = "../background.jpg"></img></div>
+        <div className={styles.backgroundWrapper}><img className={styles.background} src = "../cleaning.jpg"></img></div>
         <div className={styles.loginOuter}>
             <div>
                 <img src="sintraamiga.png"></img>

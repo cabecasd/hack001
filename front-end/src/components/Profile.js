@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router';
-import styles from '../styles/Profile.module.css'
+import styles from '../styles/Profile.module.css';
+import styles1 from '../styles/HomePage.module.css';
 import Switch from '@material-ui/core/Switch';
 import { useFormik } from 'formik';
 
@@ -33,6 +34,7 @@ function Profile() {
 
     return (
         <>
+            <img className= {styles1.background} src="../cleaning.jpg"></img>
             <div className={styles.profile}>
                 <h2>Profile</h2>
                 {

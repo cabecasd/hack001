@@ -1,4 +1,4 @@
-import styles from '../styles/HomePage.module.css'
+import styles from '../styles/HomePage.module.css';
 import BoxAdv from './BoxAdv';
 import { BiSearchAlt2 } from "react-icons/bi";
 import { useEffect, useState } from 'react';

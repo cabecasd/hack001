@@ -36,7 +36,7 @@ const AccountForm = () => {
   }
   return (
     <>
-    <img className= {styles1.background} src="../background.jpg"></img>
+    <img className= {styles1.background} src="../cleaning.jpg"></img>
     <div className={styles.account}>
       <div className={styles.formdata}>
         <form onSubmit={formik.handleSubmit}>
