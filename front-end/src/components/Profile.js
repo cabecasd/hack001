@@ -75,7 +75,7 @@ function UserDisplay(props) {
                     />
                 </div>
             }
-            <button className={styles.button} onClick={() => props.toggleEdit()}>Alterar perfil</button>
+            <button className={styles.button} onClick={() => props.toggleEdit()}>Alterar perfil e criar anúncio</button>
             </div>
         </div>
     )
@@ -111,6 +111,35 @@ function EditUserProfile(props) {
         }
     });
 
+    function saveAdvertising(values){
+        fetch(`/advertising/`, {
+            method: "POST",
+            body: JSON.stringify(values),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+    }
+
+    function submitAdvertising(values){
+        props.toggleEdit();
+        saveAdvertising(values);
+    }
+
+    const formikAd = useFormik({
+        initialValues: {
+            title: "",
+            advertising: "", 
+            userId: props.user._id,
+            email: props.user.email,
+            fullName: props.user.fullName
+        },
+
+        onSubmit: values => {
+            submitAdvertising(values)
+        }
+    });
+
     return (
         <div>
             <form onSubmit={formik.handleSubmit}>
@@ -132,6 +161,33 @@ function EditUserProfile(props) {
                         placeholder=""
                         onChange={formik.handleChange}
                         value={formik.values.description}
+                    />
+                </div>
+                <div>
+                    {/* <input type="file" ref={fileInputRef} onChange={(e) => { uploadPhoto(e) }} /> */}
+                </div>
+                <button type="submit">Guardar Alterações</button>
+            </form>
+
+            <form onSubmit={formikAd.handleSubmit}>
+                <div className={styles.inputs}>
+                    <input className={styles.label}
+                        id="title"
+                        name="title"
+                        type="text"
+                        placeholder="Título"
+                        onChange={formikAd.handleChange}
+                        value={formikAd.values.title}
+                    />
+                </div>
+                <div className={styles.inputs}>
+                    <textarea className={styles.label}
+                        id="advertising"
+                        name="advertising"
+                        type="text"
+                        placeholder="coloque aqui o seu anuncio"
+                        onChange={formikAd.handleChange}
+                        value={formikAd.values.advertising}
                     />
                 </div>
                 <div>
