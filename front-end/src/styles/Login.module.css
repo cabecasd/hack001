@@ -23,7 +23,7 @@
 .boxA {
         display: inline-block;
         height: 50vh;
-    width: 25vw;
+        width: 25vw;
         display: flex;
         flex-direction: column;
         background-color: #EF27A6;

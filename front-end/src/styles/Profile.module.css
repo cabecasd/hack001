@@ -1,17 +1,18 @@
 
 
-.profile {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    background-color: #e4bb8b;
+.profile h2{
+    
+    width: 30vw;
+    /* height: 50vh; */
+    /* background-color: #e4bb8b; */
     border-radius: 30px;
     display: flex;
+    margin-left: 400px;
     justify-content: center;
 }
 
 .personaldata {
-    width: 40vw;
+    width: 91vw;
     height: 40vh;
     color: #ac442c;
     font-weight: 500;
@@ -20,7 +21,17 @@
 }
 
 .button {
-    margin-left: 0.5rem;
+    justify-content: center;
+    width: 15%;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 510px;
+    border-radius: 3px;
+    background: #e4bb8b;
+    border: none;
+    color: black;
+    font-size: 1rem;
+  /*   margin-left: 0.5rem;
     width: 90px;
     height: 40px;
     font-family: 'Raleway', sans-serif;
@@ -36,5 +47,5 @@
     transition: all 0.5s ease 0s;
     cursor: pointer;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
