@@ -20,7 +20,7 @@ function Advertisement() {
         <>
             <img className= {styles1.background} src="../cleaning.jpg"></img>
             <div className={styles.advertisement}>
-                <h2>Anúncio</h2>
+                <h2>{ad.fullName}</h2>
 
                 {
                     ad && <div className={styles.box}>

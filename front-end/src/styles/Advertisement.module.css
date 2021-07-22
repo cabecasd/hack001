@@ -5,10 +5,15 @@
 }
 
 .box {
-    justify-content: center;
+    display: flex;
+    padding: 2rem;
     width: 80vw;
-    border: 1px solid gray;
+    border: 1px solid #ccc;
+    border-radius: 30px;
     margin-bottom: 5px;
+    margin-left: 8rem;
+    background-color: rgba(140, 171, 190, 0.9);
+    overflow: hidden;
 }
 
 
@@ -16,8 +21,7 @@
     height: 280px;
     width: 250px;
     display: flex;
-    flex-direction: row;
-    align-content: center;    
+    flex-direction: row;   
     overflow: hidden;
     flex-wrap: nowrap;
     
