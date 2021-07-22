@@ -55,6 +55,7 @@ async function createUser(values) {
     } else {
         values.private = false
         values.description = ""
+        values.cellNumber = ""
         const user = await collection.insertOne(values)
         return user
     }
@@ -105,7 +106,8 @@ async function updateUserProfile(userId, values) {
         {
             $set: {
                 email: values.email,
-                description: values.description
+                description: values.description,
+                path: values.path
             }
         }
     )

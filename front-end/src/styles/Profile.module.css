@@ -33,7 +33,7 @@
     font-size: 1rem;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
     transition: all 0.5s ease 0s;
-    
+}
   /*   margin-left: 0.5rem;
     width: 90px;
     height: 40px;
@@ -51,4 +51,12 @@
     cursor: pointer;
     justify-content: center;
     align-items: center; */
+.profile {
+    margin: 6rem;
+}
+
+textarea {
+    resize: none;
+    height: 17vh;
+    width: 30vw;
 }
