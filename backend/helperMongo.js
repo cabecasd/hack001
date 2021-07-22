@@ -39,6 +39,12 @@ async function getUserById(id) {
     return user
 }
 
+async function getUserByUsername(username) {
+    const collection = await getCollection("users", "users")
+    const user = await collection.find({ username: username }).toArray()
+    return user
+}
+
 async function createUser(values) {
     const collection = await getCollection("users", "users")
     //pesquisa na colecao se o user ja existe
@@ -49,6 +55,7 @@ async function createUser(values) {
     } else {
         values.private = false
         values.description = ""
+        values.cellNumber = ""
         const user = await collection.insertOne(values)
         return user
     }
@@ -99,7 +106,8 @@ async function updateUserProfile(userId, values) {
         {
             $set: {
                 email: values.email,
-                description: values.description
+                description: values.description,
+                path: values.path
             }
         }
     )
@@ -120,5 +128,6 @@ module.exports = {
     togglePrivateStatus,
     updateUserProfile,
     getAllAds,
-    insertAdvertising
+    insertAdvertising,
+    getUserByUsername
 }

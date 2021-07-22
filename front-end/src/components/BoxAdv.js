@@ -8,7 +8,7 @@ function BoxAdv(props) {
     return (
         <Link to={`/advertisement/${toLink}`}>
             <div className={styles.box}>
-                <div className={styles.image}><p>Imagem</p></div>
+                <div className={styles.image}><p><img src=""></img></p></div>
                 <div className={styles.block}>
                     <h4>{props.ad.fullName}</h4>
                     <p>{props.ad.description}</p>

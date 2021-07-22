@@ -1,6 +1,7 @@
 const express = require("express");
 const PORT = 3101;
 const app = express();
+const { v4: uuidv4 } = require('uuid')
 app.use(express.json())
 const {
   getloginInfo,
@@ -9,8 +10,13 @@ const {
   togglePrivateStatus,
   updateUserProfile,
   getAllAds,
-  insertAdvertising
+  insertAdvertising,
+  getUserByUsername
 } = require("./helperMongo")
+const path = require('path')
+const fs = require('fs')
+const multer = require('multer')
+const upload = multer({ dest: 'uploads/' })
 
 
 //criar conta
@@ -45,7 +51,7 @@ app.patch("/authentication", async (req, res) => {
   }
 })
 
-//obtem a toda a info do utilizador
+//obtem a toda a info do utilizador a partir do id
 app.get("/users/:id", async (req, res) => {
   try {
     const user = await getUserById(req.params.id)
@@ -59,10 +65,37 @@ app.get("/users/:id", async (req, res) => {
   }
 })
 
-//guarda alteracoes ao perfil do utilizador
-app.patch("/authentication/:id", async (req, res) => {
+//obtem a toda a info do utilizador a partir do username
+app.get("/users/:username", async (req, res) => {
   try {
-    const mongoAnswer = await updateUserProfile(req.params.id, req.body)
+    const user = await getUserByUsername(req.params.username)
+    if (user.length > 0) {
+      res.status(200).json({ user: user[0] })
+    } else {
+      res.sendStatus(404)
+    }
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+//guarda alteracoes ao perfil do utilizador
+app.patch("/authentication/:id", upload.single('photo'), async (req, res) => {
+  try {
+    const userInfo = JSON.parse(req.body.all)
+
+    const idPhoto = uuidv4()
+    const uploadedPhotoPath = path.join(__dirname, req.file.path);
+    const relativePath = '/photos/' + idPhoto
+    userInfo.path = relativePath
+    const photoPath = path.join(__dirname, relativePath);
+    const dirPath = path.join(__dirname, 'photos')
+    const mongoAnswer = await updateUserProfile(req.params.id, userInfo)
+
+    if (!fs.existsSync(dirPath)) {
+      fs.mkdirSync(dirPath)
+    }
+    fs.renameSync(uploadedPhotoPath, photoPath)
     if (mongoAnswer.modifiedCount === 1) {
       res.sendStatus(200)
     } else {
@@ -70,6 +103,17 @@ app.patch("/authentication/:id", async (req, res) => {
     }
   } catch (error) {
     console.log(error)
+  }
+})
+
+//carrega a foto
+app.get("/photo/:id/", async (req, res) => {
+  try {
+      const id = req.params.id
+      let user = await getUserById(id)
+      res.sendFile(user.url, { root: __dirname })
+  } catch (error) {
+      console.log(error)
   }
 })
 
@@ -84,11 +128,11 @@ app.patch("/togglePrivate", async (req, res) => {
 })
 
 //carrega os anuncios da pagina inicial
-app.get("/homepage", async(req, res) => {
+app.get("/homepage", async (req, res) => {
   try {
     const adsArray = await getAllAds()
-    res.status(200).json({adsArray})
-  } catch(error) {
+    res.status(200).json({ adsArray })
+  } catch (error) {
     console.log(error)
   }
 })

@@ -14,13 +14,13 @@ function InitialPage() {
                             <Login />
                             <div>
                                 <Link to="/account">
-                                        <p className={styles.registoBtn}> Ainda não possuí conta? Faça seu registo <b>aqui.</b> </p>
+                                        <p className={styles.registoBtn}> Ainda não tens conta? Faz o teu registo <b>aqui.</b> </p>
                                 </Link>
                             </div>
                         </div>
 
                         <div className={styles.boxA}>
-                            <p>És uma associação e andas a procura de jovens para realizar trabalhos voluntários?</p>
+                            <p>És uma associação e procuras jovens para realizar trabalhos voluntários?</p>
                             <Link to="/home">
                                 <button className={styles.buttonAssociation}>
                                     Entrar

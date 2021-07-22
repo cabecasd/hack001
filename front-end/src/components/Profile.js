@@ -87,10 +87,7 @@ function EditUserProfile(props) {
     function saveChanges(values) {
         fetch(`/authentication/${props.id}`, {
             method: "PATCH",
-            body: JSON.stringify(values),
-            headers: {
-                "Content-Type": "application/json"
-            }
+            body: values
         })
     }
 
@@ -107,7 +104,10 @@ function EditUserProfile(props) {
         },
 
         onSubmit: values => {
-            submitChanges(values)
+            const formData = new FormData();
+            formData.append('photo', fileInputRef.current.files[0])
+            formData.append('all', JSON.stringify(values))
+            submitChanges(formData)
         }
     });
 
@@ -154,17 +154,17 @@ function EditUserProfile(props) {
                     />
                 </div>
                 <div className={styles.inputs}>
-                    <input className={styles.label}
+                    <textarea className={styles.label}
                         id="description"
                         name="description"
                         type="text"
-                        placeholder=""
+                        placeholder="descrição"
                         onChange={formik.handleChange}
                         value={formik.values.description}
                     />
                 </div>
                 <div>
-                    {/* <input type="file" ref={fileInputRef} onChange={(e) => { uploadPhoto(e) }} /> */}
+                    <input type="file" ref={fileInputRef} />
                 </div>
                 <button type="submit">Guardar Alterações</button>
             </form>
