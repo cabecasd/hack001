@@ -9,7 +9,8 @@ const {
   togglePrivateStatus,
   updateUserProfile,
   getAllAds,
-  insertAdvertising
+  insertAdvertising,
+  getUserByUsername
 } = require("./helperMongo")
 
 
@@ -45,10 +46,24 @@ app.patch("/authentication", async (req, res) => {
   }
 })
 
-//obtem a toda a info do utilizador
+//obtem a toda a info do utilizador a partir do id
 app.get("/users/:id", async (req, res) => {
   try {
     const user = await getUserById(req.params.id)
+    if (user.length > 0) {
+      res.status(200).json({ user: user[0] })
+    } else {
+      res.sendStatus(404)
+    }
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+//obtem a toda a info do utilizador a partir do username
+app.get("/users/:username", async (req, res) => {
+  try {
+    const user = await getUserByUsername(req.params.username)
     if (user.length > 0) {
       res.status(200).json({ user: user[0] })
     } else {

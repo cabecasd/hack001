@@ -39,6 +39,12 @@ async function getUserById(id) {
     return user
 }
 
+async function getUserByUsername(username) {
+    const collection = await getCollection("users", "users")
+    const user = await collection.find({ username: username }).toArray()
+    return user
+}
+
 async function createUser(values) {
     const collection = await getCollection("users", "users")
     //pesquisa na colecao se o user ja existe
@@ -120,5 +126,6 @@ module.exports = {
     togglePrivateStatus,
     updateUserProfile,
     getAllAds,
-    insertAdvertising
+    insertAdvertising,
+    getUserByUsername
 }
