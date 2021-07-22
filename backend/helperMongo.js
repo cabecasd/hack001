@@ -2,6 +2,8 @@ const { MongoClient, ObjectId } = require("mongodb");
 const URI = "mongodb://localhost:27017"
 let client;
 
+const DB_NAME = "users"
+
 async function connect(uri) {
     if (client) return client;
     client = new MongoClient(uri, {
@@ -104,11 +106,19 @@ async function updateUserProfile(userId, values) {
     return res
 }
 
+
+async function insertAdvertising(advertising){ //insere na base de dados do front na collection advertasing
+    const collection = await getCollection(DB_NAME, "advertising");
+    const res = await collection.insertOne(advertising);
+    return res.insertedId;
+}
+
 module.exports = {
     getloginInfo,
     createUser,
     getUserById,
     togglePrivateStatus,
     updateUserProfile,
-    getAllAds
+    getAllAds,
+    insertAdvertising
 }
