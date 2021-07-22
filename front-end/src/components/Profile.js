@@ -36,7 +36,7 @@ function Profile() {
         <>
             <img className= {styles1.background} src="../cleaning.jpg"></img>
             <div className={styles.profile}>
-                <h2>Profile</h2>
+                
                 {
                     !editState ?
                         <div>
@@ -62,6 +62,7 @@ function UserDisplay(props) {
     return (
         <div className={styles.profile}>
             <div className={styles.personaldata}>
+            <h2>Profile</h2>
             {
                 props.user && <div >
                     <p>{props.user.fullName}</p>
