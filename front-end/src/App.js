@@ -34,7 +34,7 @@ function App() {
               <HomePage />
             </Route>
 
-            <Route path="/advertisement">
+            <Route path="/advertisement/:username">
               <NavBar/>
               <Advertisement />
             </Route>

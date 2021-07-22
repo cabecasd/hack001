@@ -66,9 +66,10 @@ app.get("/users/:id", async (req, res) => {
 })
 
 //obtem a toda a info do utilizador a partir do username
-app.get("/users/:username", async (req, res) => {
+app.get("/users/name/:username", async (req, res) => {
   try {
-    const user = await getUserByUsername(req.params.username)
+    const newUsername = req.params.username.replace(/-/g, ' ')
+    const user = await getUserByUsername(newUsername)
     if (user.length > 0) {
       res.status(200).json({ user: user[0] })
     } else {
@@ -107,11 +108,13 @@ app.patch("/authentication/:id", upload.single('photo'), async (req, res) => {
 })
 
 //carrega a foto
-app.get("/photo/:id/", async (req, res) => {
+app.get("/photo/:username/", async (req, res) => {
   try {
-      const id = req.params.id
-      let user = await getUserById(id)
-      res.sendFile(user.url, { root: __dirname })
+    console.log("sasf'0ans8f")
+      const username = req.params.username.replace(/-/g, ' ')
+      let user = await getUserByUsername(username)
+      console.log(user)
+      res.sendFile(user[0].path, { root: __dirname })
   } catch (error) {
       console.log(error)
   }

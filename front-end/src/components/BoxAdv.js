@@ -3,12 +3,11 @@ import { Link } from "react-router-dom";
 
 function BoxAdv(props) {
     const toLink = props.ad.username.replace(/\s+/g, '-')
-    console.log(toLink)
 
     return (
         <Link to={`/advertisement/${toLink}`}>
             <div className={styles.box}>
-                <div className={styles.image}><p><img src=""></img></p></div>
+                <img src={`/photo/${toLink}`} className={styles.image}></img>
                 <div className={styles.block}>
                     <h4>{props.ad.fullName}</h4>
                     <p>{props.ad.description}</p>

@@ -169,34 +169,6 @@ function EditUserProfile(props) {
                 <button type="submit">Guardar Alterações</button>
             </form>
 
-            <form onSubmit={formikAd.handleSubmit}>
-                <div className={styles.inputs}>
-                    <input className={styles.label}
-                        id="title"
-                        name="title"
-                        type="text"
-                        placeholder="Título"
-                        onChange={formikAd.handleChange}
-                        value={formikAd.values.title}
-                    />
-                </div>
-                <div className={styles.inputs}>
-                    <textarea className={styles.label}
-                        id="advertising"
-                        name="advertising"
-                        type="text"
-                        placeholder="coloque aqui o seu anuncio"
-                        onChange={formikAd.handleChange}
-                        value={formikAd.values.advertising}
-                    />
-                </div>
-                <div>
-                    {/* <input type="file" ref={fileInputRef} onChange={(e) => { uploadPhoto(e) }} /> */}
-                </div>
-                <button type="submit">Submeter anúncio</button>
-            </form>
-
-
         </div>
     )
 }
