@@ -193,7 +193,7 @@ function EditUserProfile(props) {
                 <div>
                     {/* <input type="file" ref={fileInputRef} onChange={(e) => { uploadPhoto(e) }} /> */}
                 </div>
-                <button type="submit">Guardar Alterações</button>
+                <button type="submit">Submeter anúncio</button>
             </form>
 
 
