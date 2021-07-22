@@ -70,9 +70,19 @@ app.get("/users/:id", async (req, res) => {
 app.get("/users/name/:username", async (req, res) => {
   try {
     const newUsername = req.params.username.replace(/-/g, ' ')
-    const user = await getUserByUsername(newUsername)
-    if (user.length > 0) {
-      res.status(200).json({ user: user[0] })
+    const userArray = await getUserByUsername(newUsername)
+    const userInfo = userArray[0]
+    if (userInfo) {
+      const user = {
+        username: userInfo.username,
+        fullName: userInfo.fullName,
+        email: userInfo.email,
+        cellNumber: userInfo.cellNumber,
+        summary: userInfo.summary,
+        description: userInfo.description,
+        path: userInfo.path
+      }
+      res.status(200).json({ user: user })
     } else {
       res.sendStatus(404)
     }
