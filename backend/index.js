@@ -11,7 +11,9 @@ const {
   updateUserProfile,
   getAllAds,
   insertAdvertising,
-  getUserByUsername
+  getUserByUsername,
+  getPossibleAdsByDescription,
+  getPossibleAdsBySummary
 } = require("./helperMongo")
 const path = require('path')
 const fs = require('fs')
@@ -22,7 +24,6 @@ const upload = multer({ dest: 'uploads/' })
 //criar conta
 app.post("/authentication", async (req, res) => {
   try {
-    console.log("entrei")
     const createStatus = await createUser(req.body)
     //se o status for true e porque o usuario ainda nao existe na base de dados, logo cria conta
     if (createStatus) {
@@ -110,13 +111,15 @@ app.patch("/authentication/:id", upload.single('photo'), async (req, res) => {
 //carrega a foto
 app.get("/photo/:username/", async (req, res) => {
   try {
-    console.log("sasf'0ans8f")
-      const username = req.params.username.replace(/-/g, ' ')
-      let user = await getUserByUsername(username)
-      console.log(user)
+    const username = req.params.username.replace(/-/g, ' ')
+    let user = await getUserByUsername(username)
+    if (user[0].path) {
       res.sendFile(user[0].path, { root: __dirname })
+    } else {
+      res.sendStatus(404)
+    }
   } catch (error) {
-      console.log(error)
+    console.log(error)
   }
 })
 
@@ -141,10 +144,45 @@ app.get("/homepage", async (req, res) => {
 })
 
 //pesquisa na pagina inicial
-////////////////////////////////////////
 app.get("/search", async (req, res) => {
   try {
-    console.log(req.query.q)
+    const adsByDescription = await getPossibleAdsByDescription(req.query.q)
+    const adsBySummary = await getPossibleAdsBySummary(req.query.q)
+    let usernames = []
+    let ads = []
+
+    for (let i = 0; i < adsByDescription.length; i++) {
+      if (!usernames.includes(adsByDescription[i].username)) {
+        ads.push(adsByDescription[i])
+        usernames.push(adsByDescription[i].username)
+      }
+    }
+    for (let i = 0; i < adsBySummary.length; i++) {
+      if (!usernames.includes(adsBySummary[i].username)) {
+        ads.push(adsBySummary[i])
+        usernames.push(adsBySummary[i].username)
+      }
+    }
+
+    //para nao mandar informacao nao desejada
+    let newAds = []
+    for (let i = 0; i < ads.length; i++) {
+      if (!ads[i].private) {
+        ad = ads[i]
+        newAds.push({
+          username: ad.username,
+          fullName: ad.fullName,
+          summary: ad.summary,
+          path: ad.path
+        })
+      }
+    }
+
+    if (newAds.length > 0) {
+      res.status(200).json({ newAds })
+    } else {
+      res.sendStatus(404)
+    }
   } catch (error) {
     console.log(error)
   }

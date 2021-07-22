@@ -19,7 +19,6 @@ function Profile() {
         const res = await fetch(`/users/${id}`)
         const data = await res.json()
         setUser(data.user)
-        console.log(data.user.private)
         setPrivateState(data.user.private)
     }
 
@@ -62,6 +61,7 @@ function UserDisplay(props) {
     return (
         <div className={styles.profile}>
             <div className={styles.personaldata}>
+
             <h2>Profile</h2>
             {
                 props.user && <div >
@@ -79,6 +79,26 @@ function UserDisplay(props) {
                 </div>
             }
             <button className={styles.button} onClick={() => props.toggleEdit()}>Alterar perfil e criar anúncio</button>
+
+                {
+                    props.user && <div >
+                        <p>{props.user.fullName}</p>
+                        <p>{props.user.email}</p>
+                        <p>{props.user.username}</p>
+                        <p>{props.user.summary}</p>
+                        <p>{props.user.description}</p>
+                        <img src={`/photo/${props.user.username}`} />
+                        <Switch
+                            checked={props.privateState}
+                            onChange={props.handleChange}
+                            color="primary"
+                            name="checkedB"
+                            inputProps={{ 'aria-label': 'primary checkbox' }}
+                        />
+                    </div>
+                }
+                <button className={styles.button} onClick={() => props.toggleEdit()}>Alterar perfil e criar anúncio</button>
+
             </div>
         </div>
     )
@@ -103,7 +123,7 @@ function EditUserProfile(props) {
 
         initialValues: {
             username: props.user.username, fullName: props.user.fullName, email: props.user.email,
-            description: props.user.description
+            description: props.user.description, summary: props.user.summary
         },
 
         onSubmit: values => {
@@ -114,7 +134,7 @@ function EditUserProfile(props) {
         }
     });
 
-    function saveAdvertising(values){
+    function saveAdvertising(values) {
         fetch(`/advertising/`, {
             method: "POST",
             body: JSON.stringify(values),
@@ -124,7 +144,7 @@ function EditUserProfile(props) {
         })
     }
 
-    function submitAdvertising(values){
+    function submitAdvertising(values) {
         props.toggleEdit();
         saveAdvertising(values);
     }
@@ -132,7 +152,7 @@ function EditUserProfile(props) {
     const formikAd = useFormik({
         initialValues: {
             title: "",
-            advertising: "", 
+            advertising: "",
             userId: props.user._id,
             email: props.user.email,
             fullName: props.user.fullName
@@ -166,8 +186,24 @@ function EditUserProfile(props) {
                         value={formik.values.description}
                     />
                 </div>
-                <div>
-                    <input type="file" ref={fileInputRef} />
+                <div className={styles.inputs}>
+                    <textarea className={styles.labelSummary}
+                        maxLength={140}
+                        id="summary"
+                        name="summary"
+                        type="text"
+                        placeholder="descrição"
+                        onChange={formik.handleChange}
+                        value={formik.values.summary}
+                    />
+                </div>
+                
+                <div className={styles.fileInputWrapper}>
+                    <label htmlFor="file-input">
+                        <img src={`/photo/${props.user.username}`} />
+                    </label>
+
+                    <input id="file-input" type="file" ref={fileInputRef}/>
                 </div>
                 <button type="submit">Guardar Alterações</button>
             </form>
