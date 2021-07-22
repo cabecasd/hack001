@@ -62,7 +62,7 @@ function UserDisplay(props) {
         <div className={styles.profile}>
             <div className={styles.personaldata}>
 
-            <h2>Profile</h2>
+            <h2>Perfil</h2>
 
                 {
                     props.user && <div >
@@ -151,7 +151,7 @@ function EditUserProfile(props) {
         <div>
             <form onSubmit={formik.handleSubmit}>
                 <div className={styles.inputs}>
-                    <input className={styles.label}
+                    <input className={styles.labelEmail}
                         id="email"
                         name="email"
                         type="email"
@@ -176,7 +176,7 @@ function EditUserProfile(props) {
                         id="summary"
                         name="summary"
                         type="text"
-                        placeholder="descrição"
+                        placeholder="sumário"
                         onChange={formik.handleChange}
                         value={formik.values.summary}
                     />
@@ -189,7 +189,7 @@ function EditUserProfile(props) {
 
                     <input id="file-input" type="file" ref={fileInputRef}/>
                 </div>
-                <button type="submit">Guardar Alterações</button>
+                <button className={styles.btnSave} type="submit">Guardar Alterações</button>
             </form>
 
         </div>
