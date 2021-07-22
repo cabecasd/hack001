@@ -5,6 +5,19 @@
     align-items: center;
 }
 
+.background {
+    background-repeat: no-repeat;
+    height: 100vh;
+    z-index: -1;
+    top: 0;
+    left:0;
+    
+    background-position: center;
+    background-size: cover;
+    position: fixed;
+    width: 100%;
+}
+
 .home h2{
     margin-top: 8rem;
     margin-bottom: 2rem;
@@ -53,9 +66,9 @@
     flex-direction: row;
     width: 80vw;
     border: 1px solid #ccc;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
     border-radius: 10px;
-    background-color: rgb(237, 234, 234);
+    background-color: rgba(140, 171, 190, 0.9); 
 }
 
 .box .image {

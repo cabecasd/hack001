@@ -5,6 +5,9 @@ import styles from '../styles/Login.module.css'
 
 function InitialPage() {
     return (
+        <>
+        
+        <div className={styles.backgroundWrapper}><img className={styles.background} src = "../background.jpg"></img></div>
         <div className={styles.loginOuter}>
             <div>
                 <img src="sintraamiga.png"></img>
@@ -30,6 +33,7 @@ function InitialPage() {
                     </div> 
             </div>
         </div>
+        </>
     )
 }
 

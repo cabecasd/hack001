@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import styles from '../styles/Advertisement.module.css'
+import styles from '../styles/Advertisement.module.css';
+import styles1 from '../styles/HomePage.module.css'
 
 function Advertisement() {
     const [ad, setAd] = useState({})
@@ -17,12 +18,13 @@ function Advertisement() {
     }
     return (
         <>
+            <img className= {styles1.background} src="../background.jpg"></img>
             <div className={styles.advertisement}>
                 <h2>Anúncio</h2>
 
                 {
                     ad.path && <div className={styles.box}>
-                        <div className={styles.image}><img src={`/photo/${ad.username}`}></img></div><br></br>
+                        <img className={styles.image} src={`/photo/${ad.username}`}></img><br></br>
                         <div className={styles.text}><p >texto sobre o anúncio</p></div>
                     </div>
                 }

@@ -1,11 +1,25 @@
-/* TIRAR DÚVIDAS COM A ELOISA COM RELAÇÃO AS BOXES */
 
 
+.background {
+    height: 100vh;
+    z-index: -1;
+    top: 0;
+    left:0;
+    
+    background-position: center;
+    background-size: cover;
+    position: fixed;
+    width: 100%;
+}
+
+.backgroundWrapper {
+    width: 100vw;
+}
 
 .boxes{
     display: flex;
     flex-direction: row;
-
+    
 }
 
 .login {
@@ -47,7 +61,6 @@
 .loginOuter {
     width: 100vw;
     height: 100vh;
-    background-color: #F5F5F5;
     color: black;
     font-weight: 500;
     display: flex;
