@@ -6,7 +6,7 @@ function BoxAdv(props) {
 
     return (
         <>
-         <img className= {styles.background} src="../background.jpg"></img>
+         <img className= {styles.background} src="../cleaning.jpg"></img>
         <Link to={`/advertisement/${toLink}`}>
             <div className={styles.box}>
                 <img src={`/photo/${toLink}`} className={styles.image}></img>
