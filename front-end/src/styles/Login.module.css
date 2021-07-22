@@ -25,7 +25,7 @@
 
 .login {
     display: inline-block;
-    height: 50vh;
+    height: 45vh;
     width: 25vw;
     display: flex;
     flex-direction: column;
@@ -40,7 +40,7 @@
 
 .boxA {
         display: inline-block;
-        height: 50vh;
+        height: 45vh;
         width: 25vw;
         display: flex;
         flex-direction: column;
@@ -56,7 +56,7 @@
     margin-top: 80px;
     margin-right: 10px;
     margin-left: 10px;
-    font-size: 25px;
+    font-size: 30px;
 }
 
 
@@ -81,7 +81,7 @@
     background: #CCDDB7;
     border: none;
     color: black;
-    font-size: 1rem;
+    font-size: 1.4rem;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
     transition: all 0.5s ease 0s;
     
@@ -105,7 +105,7 @@
 
 .registoBtn {
     width: 80%;
-    font-size: 1rem;
+    font-size: 1.4rem;
     text-decoration: none;
     margin-top: 20px;
     margin-left: 40px;
@@ -122,7 +122,7 @@
     background: #CCDDB7;
     border: none;
     color: black;
-    font-size: 1rem;
+    font-size: 1.4rem;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
     transition: all 0.5s ease 0s;
     
@@ -146,8 +146,8 @@
 
 .formlabel {
     display: block;
-    font-size: 1rem;
-    margin-top: 10px; 
+    font-size: 1.4rem;
+    margin-top: 20px; 
     padding: px;
     margin-left: 25px;
     text-align: left;
