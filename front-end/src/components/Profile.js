@@ -62,7 +62,7 @@ function UserDisplay(props) {
         <div className={styles.profile}>
             <div className={styles.personaldata}>
 
-            <h2>Profile</h2>
+            <h2>Perfil</h2>
 
                 {
                     props.user && <div >
